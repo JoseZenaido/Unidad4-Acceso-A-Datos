@@ -1,0 +1,48 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from CartaCompromisoWSService WSDL service -->
+
+  <service name="CartaCompromisoWS" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ws.utng.edu.mx"/>
+      <parameter name="wsdlServiceElement" value="CartaCompromisoWSService"/>
+      <parameter name="schemaQualified" value="http://ws.utng.edu.mx"/>
+      <parameter name="wsdlServicePort" value="CartaCompromisoWS"/>
+      <parameter name="className" value="mx.edu.utng.ws.CartaCompromisoWSSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="CartaCompromisoWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getCartas" qname="operNS:getCartas" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:getCartasReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:CartaCompromiso" xmlns:rtns="http://ws.utng.edu.mx" soapAction="" >
+      </operation>
+      <operation name="addCarta" qname="operNS:addCarta" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:addCartaReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:cartaCompromiso" xmlns:pns="http://ws.utng.edu.mx" type="tns:CartaCompromiso" xmlns:tns="http://ws.utng.edu.mx"/>
+      </operation>
+      <operation name="updateCarta" qname="operNS:updateCarta" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:updateCartaReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:cartaCompromiso" xmlns:pns="http://ws.utng.edu.mx" type="tns:CartaCompromiso" xmlns:tns="http://ws.utng.edu.mx"/>
+      </operation>
+      <operation name="removeCarta" qname="operNS:removeCarta" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:removeCartaReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://ws.utng.edu.mx" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getCartabyId" qname="operNS:getCartabyId" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:getCartabyIdReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:CartaCompromiso" xmlns:rtns="http://ws.utng.edu.mx" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://ws.utng.edu.mx" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="removeCarta addCarta updateCarta getCartabyId getCartas"/>
+
+      <typeMapping
+        xmlns:ns="http://ws.utng.edu.mx"
+        qname="ns:CartaCompromiso"
+        type="java:mx.edu.utng.ws.CartaCompromiso"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

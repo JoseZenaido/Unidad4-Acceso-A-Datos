@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.utng.edu.mx" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.utng.edu.mx" xmlns:intf="http://ws.utng.edu.mx" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.utng.edu.mx" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getCartas">
+    <complexType/>
+   </element>
+   <element name="getCartasResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getCartasReturn" type="impl:CartaCompromiso"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="CartaCompromiso">
+    <sequence>
+     <element name="autorizo" nillable="true" type="xsd:string"/>
+     <element name="fechaPago" nillable="true" type="xsd:string"/>
+     <element name="fechaSolicitud" nillable="true" type="xsd:string"/>
+     <element name="folio" type="xsd:int"/>
+     <element name="id" type="xsd:int"/>
+     <element name="pagado" type="xsd:int"/>
+     <element name="periodo" type="xsd:int"/>
+     <element name="personaAutorizo" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="addCarta">
+    <complexType>
+     <sequence>
+      <element name="cartaCompromiso" type="impl:CartaCompromiso"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addCartaResponse">
+    <complexType>
+     <sequence>
+      <element name="addCartaReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateCarta">
+    <complexType>
+     <sequence>
+      <element name="cartaCompromiso" type="impl:CartaCompromiso"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateCartaResponse">
+    <complexType>
+     <sequence>
+      <element name="updateCartaReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeCarta">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeCartaResponse">
+    <complexType>
+     <sequence>
+      <element name="removeCartaReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCartabyId">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCartabyIdResponse">
+    <complexType>
+     <sequence>
+      <element name="getCartabyIdReturn" type="impl:CartaCompromiso"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getCartasRequest">
+
+      <wsdl:part element="impl:getCartas" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeCartaResponse">
+
+      <wsdl:part element="impl:removeCartaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCartabyIdResponse">
+
+      <wsdl:part element="impl:getCartabyIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addCartaRequest">
+
+      <wsdl:part element="impl:addCarta" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateCartaRequest">
+
+      <wsdl:part element="impl:updateCarta" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addCartaResponse">
+
+      <wsdl:part element="impl:addCartaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCartabyIdRequest">
+
+      <wsdl:part element="impl:getCartabyId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCartasResponse">
+
+      <wsdl:part element="impl:getCartasResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeCartaRequest">
+
+      <wsdl:part element="impl:removeCarta" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateCartaResponse">
+
+      <wsdl:part element="impl:updateCartaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="CartaCompromisoWS">
+
+      <wsdl:operation name="getCartas">
+
+         <wsdl:input message="impl:getCartasRequest" name="getCartasRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCartasResponse" name="getCartasResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addCarta">
+
+         <wsdl:input message="impl:addCartaRequest" name="addCartaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addCartaResponse" name="addCartaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateCarta">
+
+         <wsdl:input message="impl:updateCartaRequest" name="updateCartaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateCartaResponse" name="updateCartaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeCarta">
+
+         <wsdl:input message="impl:removeCartaRequest" name="removeCartaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:removeCartaResponse" name="removeCartaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCartabyId">
+
+         <wsdl:input message="impl:getCartabyIdRequest" name="getCartabyIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCartabyIdResponse" name="getCartabyIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="CartaCompromisoWSSoapBinding" type="impl:CartaCompromisoWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getCartas">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCartasRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCartasResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addCarta">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addCartaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addCartaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateCarta">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateCartaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateCartaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeCarta">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removeCartaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removeCartaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCartabyId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCartabyIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCartabyIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CartaCompromisoWSService">
+
+      <wsdl:port binding="impl:CartaCompromisoWSSoapBinding" name="CartaCompromisoWS">
+
+         <wsdlsoap:address location="http://localhost:8080/WebService/services/CartaCompromisoWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

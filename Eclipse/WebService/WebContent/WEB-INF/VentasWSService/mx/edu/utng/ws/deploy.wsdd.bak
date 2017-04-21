@@ -1,0 +1,48 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from VentasWSService WSDL service -->
+
+  <service name="VentasWS" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ws.utng.edu.mx"/>
+      <parameter name="wsdlServiceElement" value="VentasWSService"/>
+      <parameter name="schemaQualified" value="http://ws.utng.edu.mx"/>
+      <parameter name="wsdlServicePort" value="VentasWS"/>
+      <parameter name="className" value="mx.edu.utng.ws.VentasWSSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="VentasWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="updateVenta" qname="operNS:updateVenta" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:updateVentaReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:venta" xmlns:pns="http://ws.utng.edu.mx" type="tns:Venta" xmlns:tns="http://ws.utng.edu.mx"/>
+      </operation>
+      <operation name="addVenta" qname="operNS:addVenta" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:addVentaReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:venta" xmlns:pns="http://ws.utng.edu.mx" type="tns:Venta" xmlns:tns="http://ws.utng.edu.mx"/>
+      </operation>
+      <operation name="removeVenta" qname="operNS:removeVenta" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:removeVentaReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://ws.utng.edu.mx" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getVentas" qname="operNS:getVentas" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:getVentasReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:Venta" xmlns:rtns="http://ws.utng.edu.mx" soapAction="" >
+      </operation>
+      <operation name="getVentabyId" qname="operNS:getVentabyId" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:getVentabyIdReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:Venta" xmlns:rtns="http://ws.utng.edu.mx" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://ws.utng.edu.mx" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="removeVenta addVenta getVentas getVentabyId updateVenta"/>
+
+      <typeMapping
+        xmlns:ns="http://ws.utng.edu.mx"
+        qname="ns:Venta"
+        type="java:mx.edu.utng.ws.Venta"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.utng.edu.mx" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.utng.edu.mx" xmlns:intf="http://ws.utng.edu.mx" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.utng.edu.mx" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="updateVenta">
+    <complexType>
+     <sequence>
+      <element name="venta" type="impl:Venta"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Venta">
+    <sequence>
+     <element name="id" type="xsd:int"/>
+     <element name="total" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <element name="updateVentaResponse">
+    <complexType>
+     <sequence>
+      <element name="updateVentaReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addVenta">
+    <complexType>
+     <sequence>
+      <element name="venta" type="impl:Venta"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addVentaResponse">
+    <complexType>
+     <sequence>
+      <element name="addVentaReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeVenta">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeVentaResponse">
+    <complexType>
+     <sequence>
+      <element name="removeVentaReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getVentas">
+    <complexType/>
+   </element>
+   <element name="getVentasResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getVentasReturn" type="impl:Venta"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getVentabyId">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getVentabyIdResponse">
+    <complexType>
+     <sequence>
+      <element name="getVentabyIdReturn" type="impl:Venta"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="updateVentaResponse">
+
+      <wsdl:part element="impl:updateVentaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getVentasRequest">
+
+      <wsdl:part element="impl:getVentas" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateVentaRequest">
+
+      <wsdl:part element="impl:updateVenta" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addVentaRequest">
+
+      <wsdl:part element="impl:addVenta" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeVentaResponse">
+
+      <wsdl:part element="impl:removeVentaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getVentasResponse">
+
+      <wsdl:part element="impl:getVentasResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getVentabyIdRequest">
+
+      <wsdl:part element="impl:getVentabyId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getVentabyIdResponse">
+
+      <wsdl:part element="impl:getVentabyIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addVentaResponse">
+
+      <wsdl:part element="impl:addVentaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeVentaRequest">
+
+      <wsdl:part element="impl:removeVenta" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="VentasWS">
+
+      <wsdl:operation name="updateVenta">
+
+         <wsdl:input message="impl:updateVentaRequest" name="updateVentaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateVentaResponse" name="updateVentaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addVenta">
+
+         <wsdl:input message="impl:addVentaRequest" name="addVentaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addVentaResponse" name="addVentaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeVenta">
+
+         <wsdl:input message="impl:removeVentaRequest" name="removeVentaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:removeVentaResponse" name="removeVentaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getVentas">
+
+         <wsdl:input message="impl:getVentasRequest" name="getVentasRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getVentasResponse" name="getVentasResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getVentabyId">
+
+         <wsdl:input message="impl:getVentabyIdRequest" name="getVentabyIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getVentabyIdResponse" name="getVentabyIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="VentasWSSoapBinding" type="impl:VentasWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="updateVenta">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateVentaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateVentaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addVenta">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addVentaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addVentaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeVenta">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removeVentaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removeVentaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getVentas">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getVentasRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getVentasResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getVentabyId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getVentabyIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getVentabyIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="VentasWSService">
+
+      <wsdl:port binding="impl:VentasWSSoapBinding" name="VentasWS">
+
+         <wsdlsoap:address location="http://localhost:8080/WebService/services/VentasWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
